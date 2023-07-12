@@ -6,7 +6,9 @@ import { getNotes, getNote, createNote , deleteNote ,
 const app = express()
 
 app.use(express.json())
-
+app.get('/', (req, res) => {
+  res.send('hello world')
+ })
 app.get("/retreivenotes", async (req, res) => {
   const notes = await getNotes()
   res.send(notes)
