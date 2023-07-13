@@ -44,6 +44,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke ')
 })
 
-app.listen(3000, () => {
+app.listen(process.env.MYSQL_PORT, () => {
   console.log('Server is running on port 3000')
 })
