@@ -1,0 +1,21 @@
+version: '2.19.1'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.33
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Root@111
+      - MYSQL_DATABASE=notes_app
+    volumes:
+      - mysql_data:/usr/local/mysql
+volumes:
+  mysql_data:
