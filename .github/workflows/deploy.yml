@@ -28,7 +28,7 @@ jobs:
 
       - uses: a7ul/tar-action@v1.1.0
         with:
-          command: c
+          command: git pull origin main
           cwd: "./"
           files: |
             captain-definition
