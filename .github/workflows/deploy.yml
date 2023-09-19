@@ -31,7 +31,6 @@ jobs:
           command: c
           cwd: "./"
           files: |
-            notes-repo/
             captain-definition
           outPath: deploy.tar
 
