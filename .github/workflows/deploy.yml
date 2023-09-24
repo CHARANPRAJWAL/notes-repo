@@ -21,7 +21,7 @@ jobs:
     - name: Install CapRover CLI
       run: |
         npm install -g caprover
-        caprover login "$CAPROVER_SERVER_URL"
+        caprover login  --url https://captain.caprover.blr0.geekydev.com --password Goldtree@9  --name captain-01
 
     - name: Build and deploy app to CapRover
       run: |
@@ -30,6 +30,6 @@ jobs:
         npm run build
 
         # Deploy the app to CapRover
-        caprover deploy --name "$CAPROVER_APP_NAME 
+        caprover deploy --name github-test
 
 
