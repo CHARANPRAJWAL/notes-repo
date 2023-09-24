@@ -21,7 +21,7 @@ jobs:
     - name: Install CapRover CLI
       run: |
         npm install -g caprover
-        caprover login --token "$CAPROVER_API_KEY" --url "$CAPROVER_SERVER_URL"
+        caprover login  --url "$CAPROVER_SERVER_URL"
 
     - name: Build and deploy app to CapRover
       run: |
@@ -30,11 +30,6 @@ jobs:
         npm run build
 
         # Deploy the app to CapRover
-        caprover deploy --name "$CAPROVER_APP_NAME" --path ./ --dockerfile ./Dockerfile
-
-      env:
-        CAPROVER_API_KEY: ${{ secrets.CAPROVER_API_KEY }}  # Create a secret in your repository for the API key
-        CAPROVER_SERVER_URL: ${{ secrets.CAPROVER_SERVER_URL }}  # Create a secret in your repository for the CapRover server URL
-        CAPROVER_APP_NAME: "your-app-name"  # Replace with your app's name
+        caprover deploy --name "$CAPROVER_APP_NAME 
 
 
