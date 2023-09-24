@@ -29,9 +29,8 @@ jobs:
       - uses: a7ul/tar-action@v1.1.0
         with:
           command: c
-          cwd: "./"
-          files: |
-            ./notes-repo/
+          cwd: ./notes-repo/  # Specify the path to your app's directory
+          files: ./
           outPath: deploy.tar
 
       - name: Deploy App to CapRover
