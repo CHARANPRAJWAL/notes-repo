@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+    "FROM daprio/dapr",
+    "WORKDIR /usr/src/app",
+    "CMD [\"./daprd\", \"-app-id\", \"srv-captain--my-notes-app\", \"-app-port\", \"4000\", \"--dapr-http-port\", \"4500\", \"node app.js\"]"
+  ]
+}
+

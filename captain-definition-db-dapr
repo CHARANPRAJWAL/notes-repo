@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+    "FROM daprio/dapr",
+    "WORKDIR /usr/src/app",
+    "CMD [\"./daprd\", \"-app-id\", \"srv-captain--mysql-db\", \"-app-port\", \"3306\", \"--dapr-http-port\", \"5506\"]"
+  ]
+}
+
+
