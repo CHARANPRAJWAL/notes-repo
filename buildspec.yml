@@ -1,12 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-        docker: 18     
-    commands: 
-      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
-      - timeout 15 sh -c "until docker info; do echo .; sleep 1; 
   pre_build:
     commands:
       - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y5f1s2t0
@@ -17,6 +11,6 @@ phases:
   post_build:
     commands:
       - docker push public.ecr.aws/y5f1s2t0/notes_app
-      - printf '[{"name":NEW-TD,"imageUri":"%s"}]' public.ecr.aws/y5f1s2t0/notes_app > imagedefinitions.json
+      - printf '[{"name":"NEW-TD","imageUri":"%s"}]' public.ecr.aws/y5f1s2t0/notes_app > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
