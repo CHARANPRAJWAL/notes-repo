@@ -7,7 +7,7 @@ const app = express()
 
 app.use(express.json())
 app.get('/', (req, res) => {
-  res.send('Hii world!!')
+  res.send('Hello code build CI/CD!!')
  })
 app.get("/retreivenotes", async (req, res) => {
   const notes = await getNotes()
