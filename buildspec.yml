@@ -6,13 +6,11 @@ phases:
       - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y5f1s2t0
   build:
     commands:
-      - docker build -t notes_app:latest .
-      - docker tag notes_app public.ecr.aws/y5f1s2t0/notes_app
+      - docker build -t notes_app .
+      - docker tag notes_app:latest public.ecr.aws/y5f1s2t0/notes_app:latest
   post_build:
     commands:
-      - docker push public.ecr.aws/y5f1s2t0/notes_app
-      - printf '[{"name":"APP","imageUri":"%s"}]' 
-         public.ecr.aws/y5f1s2t0/notes_app > imagedefinitions.json
+      - docker push public.ecr.aws/y5f1s2t0/notes_app:latest
+      - printf '[{"name":"APP","imageUri":"%s"}]' public.ecr.aws/y5f1s2t0/notes_app:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
-
