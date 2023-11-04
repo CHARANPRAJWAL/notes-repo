@@ -11,6 +11,8 @@ phases:
   post_build:
     commands:
       - docker push public.ecr.aws/y5f1s2t0/notes_app
-      - printf '[{"name":"NEW-TD","imageUri":"%s"}]' public.ecr.aws/y5f1s2t0/notes_app > imagedefinitions.json
+      - printf '[{"name":"APP","imageUri":"%s"}]' 
+         public.ecr.aws/y5f1s2t0/notes_app > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
+
